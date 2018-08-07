@@ -389,7 +389,7 @@ class BaseSession{
     /**
      * @return null|string
      */
-    public function getQuickReply(): ?string{
+    public function getQuickReply() : string{
         return $this->quickReply;
     }
 
@@ -400,7 +400,7 @@ class BaseSession{
         $this->quickReply = $sender->getName();
     }
 
-    public function removeQuickReply(): void{
+    public function removeQuickReply() : void{
         $this->quickReply = false;
     }
 
@@ -420,14 +420,14 @@ class BaseSession{
     /**
      * @return bool
      */
-    public function isMuted(): bool{
+    public function isMuted() : bool{
         return $this->isMuted;
     }
 
     /**
      * @return \DateTime|null
      */
-    public function getMutedUntil(): ?\DateTime{
+    public function getMutedUntil() : ?\DateTime{
         return $this->mutedUntil;
     }
 
@@ -435,7 +435,7 @@ class BaseSession{
      * @param bool $state
      * @param \DateTime|null $expires
      */
-    public function setMuted(bool $state, \DateTime $expires = null): void{
+    public function setMuted(bool $state, \DateTime $expires = null) : void{
         $this->isMuted = $state;
         $this->mutedUntil = $expires;
     }
@@ -454,14 +454,14 @@ class BaseSession{
     /**
      * @return null|string
      */
-    public function getNick(): ?string{
+    public function getNick() : ?string{
         return $this->nick;
     }
 
     /**
      * @param null|string $nick
      */
-    public function setNick(?string $nick): void{
+    public function setNick(?string $nick) : void{
         $this->nick = $nick;
         $this->getPlayer()->setDisplayName($nick ?? $this->getPlayer()->getName());
         $this->getPlayer()->setNameTag($nick ?? $this->getPlayer()->getName());
@@ -483,7 +483,7 @@ class BaseSession{
     /**
      * @return bool
      */
-    public function isPowerToolEnabled(): bool{
+    public function isPowerToolEnabled() : bool{
         if(!$this->ptCommands && !$this->ptChatMacro){
             return false;
         }
